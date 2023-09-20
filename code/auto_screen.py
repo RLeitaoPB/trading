@@ -31,7 +31,7 @@ class StockDataFetcher:
         conn = sq.connect(self.db_path)
         try:
             df_db = pd.read_sql_query("SELECT * from price_action", conn)
-        except sq.Error as e:  # Especificar a exceção
+        except sq.Error as e:
             print(f"SQL Error: {e}")
             df_db = pd.DataFrame(columns=['date', 'ticker', 'open', 'high', 'low', 'close', 'adjclose', 'volume'])
         
